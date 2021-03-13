@@ -1,6 +1,26 @@
-#folklore-logo {
+.folklore-logo {
   width: 300px;
   height: 72px;
+  display: block;
+}
+
+.folklore-logo-2 {
+  width: 300px;
+  height: 72px;
+  display: none;
+}
+
+@media only screen and (max-width: 992px) {
+  .folklore-logo-2 {
+    width: 200px;
+    height: 36px;
+    display: block;
+  }
+  .folklore-logo {
+    width: 300px;
+    height: 72px;
+    display: none;
+  }
 }
 
 #agaves-image {
@@ -48,4 +68,8 @@
 
 .widget {
   margin-bottom: 100px !important;
+}
+
+.page-numbers-container {
+
 }

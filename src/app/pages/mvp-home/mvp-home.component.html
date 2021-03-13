@@ -15,7 +15,7 @@
             </ul>
           </div>
           <div class="col-lg-4 logo-block">
-            <img src="../../../assets/temp/images/logofolklore.svg" alt="" id="folklore-logo">
+            <img src="../../../assets/temp/images/logofolklore.svg" alt="" class="folklore-logo">
           </div>
           <div class="col-lg-4 col-6">
             <ul class="top-right user-info">
@@ -40,7 +40,7 @@
     <!-- Menu Block -->
     <div class="container-fluid no-left-padding no-right-padding menu-block">
       <nav class="navbar ownavigation navbar-expand-lg">
-        <a class="navbar-brand" href="index.html">Mini :: Blog</a>
+        <img src="../../../assets/temp/images/logofolklore.svg" alt="" class="folklore-logo-2 ">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar7" aria-controls="navbar7" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fa fa-bars"></i>
         </button>
@@ -179,12 +179,12 @@
                     <div class="post-meta">
                       <span class="post-date"><a href="#">Leer Más</a></span>
                     </div>
-                    <a href="#"><img [src]="post.urlToImage" alt="Post" class="post-image"/></a>
+                    <a href="#"><img [src]="post.image" alt="Post" class="post-image"/></a>
                   </div>
                   <!---->
                   <div class="entry-content">
                     <div class="entry-header">
-                      <span class="post-category"><a href="#" title="Technology">{{post.publishedAt | date:'short':'es-MX'}}</a></span>
+                      <span class="post-category"><a href="#" title="Technology">{{post.published_at | date:'short':'es-MX'}}</a></span>
                       <h3 class="entry-title"><a href="#" title="Traffic Jams Solved">{{post.title}}</a></h3>
                     </div>
                     <p>
@@ -199,9 +199,11 @@
             <nav class="navigation pagination">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <p class="prev page-numbers page-selected" href="#" (click)="setCurrentPage(selectedPage - 1); scrollTo(newsHeader)">Anterior</p>
-                <div *ngFor="let page of pagination" class="page-numbers" >
-                  <p class="" href="#" *ngIf="selectedPage !== page" (click)="setCurrentPage(page); scrollTo(newsHeader)"><span class="meta-nav screen-reader-text"></span>{{(page + 1)}}</p>
+                <p class="prev page-numbers page-selected" (click)="setCurrentPage(selectedPage - 1); scrollTo(newsHeader)">Anterior</p>
+                <div *ngFor="let page of pagination" class="page-numbers" (click)="setCurrentPage(page); scrollTo(newsHeader)">
+                  <p *ngIf="selectedPage !== page">
+                    <span class="meta-nav screen-reader-text"></span>{{(page + 1)}}
+                  </p>
                   <span class="page-numbers current page-selected" *ngIf="selectedPage === page">
                     <span class="meta-nav screen-reader-text "></span> {{(selectedPage + 1)}}
                   </span>

@@ -14,7 +14,7 @@ export class MvpHomeComponent implements OnInit, OnDestroy {
   public newsPosts: any[] = []; // [{},{},{},{},{},{},{},{},{}]
   public selectedPosts: any[] = [];
   public pagination: number[] = [0];
-  public selectedPage = 0;
+  public selectedPage = -1;
   public postsPerPages = 3;
 
   constructor(
@@ -24,9 +24,8 @@ export class MvpHomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.newsService.getLastNews().pipe(
       takeUntil(this.onDestroy)
-    ).subscribe((data: any) => {
-      const processedData = data.articles.filter((p: any) => p.urlToImage);
-      this.newsPosts = processedData;
+    ).subscribe((res: any) => {
+      this.newsPosts = res.data.filter((p: any) => p.image);
       this.setPagination();
       this.setCurrentPage(0);
     });
@@ -42,7 +41,7 @@ export class MvpHomeComponent implements OnInit, OnDestroy {
   }
 
   setCurrentPage(page: number) {
-    if (page >= 0 && page < Math.ceil(this.newsPosts.length / this.postsPerPages)) {
+    if (page >= 0 && page < Math.ceil(this.newsPosts.length / this.postsPerPages) && this.selectedPage !== page) {
       const min = page * this.postsPerPages;
       const max = min + this.postsPerPages;
       this.selectedPage = page;
