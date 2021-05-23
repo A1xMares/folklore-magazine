@@ -6,22 +6,29 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MvpHomeComponent } from './pages/mvp-home/mvp-home.component';
 import {NewsService} from "./services/news.service";
 import {HttpClientModule} from "@angular/common/http";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {MatRippleModule} from "@angular/material/core";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent,
-    MvpHomeComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+
+    MatIconModule,
+    MatButtonModule,
+    MatRippleModule,
+    MatMenuModule
   ],
   providers: [NewsService],
   bootstrap: [AppComponent]

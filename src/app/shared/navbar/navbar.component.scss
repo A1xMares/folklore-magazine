@@ -1,0 +1,46 @@
+.nav-logo {
+  height: 50px;
+}
+
+#navbar-container {
+  width: 100%; /* Full width */
+  transition: all 0.3s; /* Transition effect when sliding down (and up) */
+  box-shadow: 0 1px 7px 3px rgba(0,0,0,.15) !important;
+  background-color: white;
+  position: relative;
+}
+
+#navbar-top-container {
+  height: 70px;
+}
+
+#navbar-bottom-container {
+  height: 45px;
+}
+
+#nav-items-container {
+  height: 45px;
+  border-top: 1px solid darkgrey;
+  .nav-item {
+    height: 45px;
+    cursor: pointer;
+    outline: none;
+    .nav-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.navbar-active {
+  color: #3F51B5 !important;
+  font-weight: bold;
+  p {
+    color: #3F51B5 !important;
+  }
+}
+
+.nav-list {
+
+}

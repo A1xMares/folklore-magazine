@@ -1,0 +1,16 @@
+<carousel
+  [height]="330"
+  [cellWidth]="250"
+  [arrowsTheme]="'dark'" class="">
+  <div class="carousel-cell" *ngFor="let newObj of newsObj">
+    <app-feed-new-card
+      [title]="newObj.title"
+      [imageUrl]="newObj.image"
+      [date]="newObj.published_at"
+      [description]="newObj.title">
+    </app-feed-new-card>
+  </div>
+
+</carousel>
+
+

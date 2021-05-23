@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {ChangeDetectorRef, Component} from '@angular/core';
+import {MediaMatcher} from "@angular/cdk/layout";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'folklore';
+
+  /* manage responsive */
+  private mobileQueryListener: () => void;
+  public mobileQuery: MediaQueryList;
+
+  constructor(
+    public media: MediaMatcher,
+    public changeDetectorRef: ChangeDetectorRef,
+  ) {
+    this.mobileQuery = media.matchMedia('(max-width: 992px)');
+    this.mobileQueryListener = () => {
+      changeDetectorRef.detectChanges();
+    };
+    this.mobileQuery.addListener(this.mobileQueryListener);
+  }
+
 }

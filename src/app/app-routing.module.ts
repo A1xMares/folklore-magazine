@@ -1,20 +1,44 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MvpHomeComponent} from "./pages/mvp-home/mvp-home.component";
+import {HomeComponent} from "./pages/home/home.component";
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'inicio',
+    redirectTo: 'tu-fraccionamiento/inicio',
     pathMatch: 'full'
   },
   {
-    path: 'inicio',
-    component: MvpHomeComponent,
+    path: 'tu-fraccionamiento/inicio',
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
+  },
+  {
+    path: 'tu-fraccionamiento/colonos',
+    loadChildren: () => import('./pages/news/section-feed/section-feed.module').then(m => m.SectionFeedModule),
+  },
+  {
+    path: 'tu-fraccionamiento/economia',
+    loadChildren: () => import('./pages/news/section-feed/section-feed.module').then(m => m.SectionFeedModule),
+  },
+  {
+    path: 'tu-fraccionamiento/sociedad',
+    loadChildren: () => import('./pages/news/section-feed/section-feed.module').then(m => m.SectionFeedModule),
+  },
+  {
+    path: 'tu-fraccionamiento/deportes',
+    loadChildren: () => import('./pages/news/section-feed/section-feed.module').then(m => m.SectionFeedModule),
+  },
+  {
+    path: 'tu-fraccionamiento/ocasion',
+    loadChildren: () => import('./pages/news/section-feed/section-feed.module').then(m => m.SectionFeedModule),
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule),
   },
   {
     path: '**',
-    redirectTo: 'inicio',
+    redirectTo: 'tu-fraccionamiento/inicio',
     pathMatch: 'full'
   }
 ];

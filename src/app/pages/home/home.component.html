@@ -1,1 +1,59 @@
-<p>home works!</p>
+<div class="container pt-5 pb-5 pl-0 pr-0">
+
+  <div class="row">
+
+    <div class="col-12" *ngIf="lastLoaded">
+      <p class="title-black font-bold mb-4">ÚLTIMAS NOTICIAS</p>
+      <app-horizontal-feed [newsObj]="lastNews"></app-horizontal-feed>
+    </div>
+
+    <div class="col-12 com-sm-6 col-md-7 col-lg-8 col-xl-9 pr-4" *ngIf="lastLoaded">
+
+      <p class="title-black font-bold mb-4 mt-4">ECONOMÍA</p>
+      <app-horizontal-feed [newsObj]="sportNews"></app-horizontal-feed>
+
+      <p class="title-black font-bold mb-4 mt-4">SOCIEDAD</p>
+      <app-horizontal-feed [newsObj]="entertainmentNews"></app-horizontal-feed>
+
+    </div>
+
+    <div class="col-12 com-sm-6 col-md-5 col-lg-4 col-xl-3" *ngIf="lastLoaded">
+      <p class="title-black font-bold mb-4 mt-4">LISTA DE DEUDORES</p>
+
+      <mat-card class="generic-card">
+        <mat-list class="pt-0">
+          <mat-list-item *ngFor="let person of people">
+            <mat-icon mat-list-icon>house</mat-icon>
+            <div mat-line>{{person.house}}</div>
+            <div mat-line> {{person.name}} </div>
+          </mat-list-item>
+        </mat-list>
+      </mat-card>
+
+      <p class="title-black font-bold mb-4 mt-4">PRÓXIMAS JUNTAS</p>
+
+      <mat-card class="generic-card">
+        <mat-list class="pt-0">
+          <mat-list-item *ngFor="let meeting of meetings">
+            <mat-icon mat-list-icon>watch_later</mat-icon>
+            <div mat-line>{{meeting.place}}</div>
+            <div mat-line> {{meeting.date | date:'medium':'es-MX'}} </div>
+          </mat-list-item>
+        </mat-list>
+      </mat-card>
+
+    </div>
+
+    <!--<div class="col-12" *ngIf="sportsLoaded">
+      <p class="title-black font-bold mb-4 mt-5">LO ÚLTIMO EN DEPORTES</p>
+      <app-horizontal-feed [newsObj]="sportNews"></app-horizontal-feed>
+    </div>
+
+    <div class="col-12" *ngIf="lastLoaded">
+      <p class="title-black font-bold mb-4 mt-5">LO ÚLTIMO EN ENTRETENIMIENTO</p>
+      <app-horizontal-feed [newsObj]="entertainmentNews"></app-horizontal-feed>
+    </div>-->
+
+  </div>
+
+</div>

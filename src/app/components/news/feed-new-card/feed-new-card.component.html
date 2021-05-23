@@ -1,0 +1,7 @@
+<mat-card class="feed-new-card">
+  <div class="card-image-container" mat-card-image [style.background-image]="'url(' + imageUrl + ')'"></div>
+  <mat-card-content>
+    <p class="font-bold">{{date | date:'mediumDate':'es-MX'}}</p>
+    <p> {{description}} </p>
+  </mat-card-content>
+</mat-card>

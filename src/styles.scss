@@ -1,4 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+/* angular material custom theme  */
+@import "./app/material-configs/custom-theme.scss";
+@include mat-core();
+@include angular-material-theme($my-theme);
+
+/* Importing Bootstrap SCSS file. */
+@import './assets/CSS/bootstrap-grid.min.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* FONT COLORS */
+
+.body-primary,
+.title-primary,
+.subtitle-primary {
+  color: #3F51B5;
+}
+
+.caption-black,
+.body-black,
+.title-black,
+.subtitle-black {
+  color: black;
+}
+
+.body-white,
+.title-white,
+.subtitle-white {
+  color: white;
+}
+
+
+/* FONT FAMILIES & SIZES */
+
+.body-primary,
+.body-black,
+.body-white {
+  font-family: 'Arial Nova Light', sans-serif;
+  font-size: 15px;
+}
+
+.title-primary,
+.title-black,
+.title-white {
+  font-family: 'Arial Nova', sans-serif;
+  font-size: 22px;
+}
+
+.subtitle-primary,
+.subtitle-black,
+.subtitle-white {
+  font-family: 'Arial Nova', sans-serif;
+  font-size: 18px;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.generic-card {
+  border-radius: 10px !important;
+  box-shadow: 0 1px 7px 3px rgba(0,0,0,.07) !important;
+}
+
+.text-align-center {
+  text-align: center;
+}

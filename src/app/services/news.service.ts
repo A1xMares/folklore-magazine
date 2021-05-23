@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class NewsService {
 
-  private tempApi = 'http://api.mediastack.com/v1/news?access_key=ddc17c151361e25b95bc0058f8507018&countries=mx&languages=es&sort=popularity';
+  private tempApi = 'http://api.mediastack.com/v1/news?access_key=ddc17c151361e25b95bc0058f8507018&countries=mx&languages=es&sort=published_desc';
 
   constructor(
     private http: HttpClient
@@ -15,6 +15,16 @@ export class NewsService {
   // Add a new data object //
   getLastNews() {
     return this.http.get(this.tempApi);
+  }
+
+  // Add a new data object //
+  getSportNews() {
+    return this.http.get(this.tempApi + '&categories=sports');
+  }
+
+  // Add a new data object //
+  getEntertainmentNews() {
+    return this.http.get(this.tempApi + '&categories=entertainment ');
   }
 
 }
